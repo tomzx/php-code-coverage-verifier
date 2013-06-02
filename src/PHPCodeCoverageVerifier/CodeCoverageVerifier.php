@@ -33,41 +33,6 @@ class CodeCoverageVerifier
 		}
 	}
 
-	/*private function is_covered($xml, $filename, $line_start, $line_count)
-	{
-		// Find file in clover xml
-		$file = $this->find_file_in_xml($xml, $filename);
-
-		if (count($file) !== 1) {
-			//echo 'No coverage file found for file '.$filename.'.'.PHP_EOL;
-			return false;
-			// throw new \Exception('Could not find file info in coverage. File '.$filename);
-		}
-
-		$file = $file[0];
-
-		// Iterate over $line_start -> $line_start + $line_count
-		$end = $line_start + $line_count;
-		for ($i = $line_start; $i < $end; ++$i) {
-
-			$line_info = $file->xpath('line[@num="'.$i.'"]');
-
-			if (count($line_info) !== 1) {
-				// Most likely a comment
-				continue;
-				//throw new \Exception('Could not find file info in coverage. File '.$filename.' line '.$i);
-			}
-			$line_info = $line_info[0];
-
-			// If line is not covered, return false
-			if ((int)$line_info['count'] === 0) {
-				return false;
-			}
-		}
-
-		return true;
-	}*/
-
 	private function evaluate_coverage($file_node, $line_start, $line_count)
 	{
 		$coverage = array('covered' => array(), 'not-covered' => array());
