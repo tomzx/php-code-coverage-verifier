@@ -4,19 +4,6 @@ use PHPCodeCoverageVerifier\CodeCoverageVerifier;
 
 class CodeCoverageVerifierTest extends PHPUnit_Framework_TestCase
 {
-	private function get_default_result()
-	{
-		return 	array(
-					'covered' => array(),
-					'not-covered' => array(),
-					'ignored' => array(),
-					'details' => array(
-									'covered' => 0,
-									'not-covered' => 0,
-								),
-				);
-	}
-
 	private function fixture($path)
 	{
 		return __DIR__.'/fixtures/'.$path;
@@ -30,7 +17,7 @@ class CodeCoverageVerifierTest extends PHPUnit_Framework_TestCase
 		$codeCoverageVerifier = new CodeCoverageVerifier();
 		$coverage = $codeCoverageVerifier->execute(null, '');
 
-		$this->assertEquals($this->get_default_result(), $coverage);
+		$this->assertEquals($codeCoverageVerifier->get_default_coverage_result(), $coverage);
 	}
 
 	/**
@@ -41,29 +28,25 @@ class CodeCoverageVerifierTest extends PHPUnit_Framework_TestCase
 		$codeCoverageVerifier = new CodeCoverageVerifier();
 		$coverage = $codeCoverageVerifier->execute(null, file_get_contents($this->fixture('diff.diff')));
 
-		$this->assertEquals($this->get_default_result(), $coverage);
+		$this->assertEquals($codeCoverageVerifier->get_default_coverage_result(), $coverage);
 	}
 
-	/**
-	 * @expectedException Exception
-	 */
 	public function testExecuteEmptyCloverXmlFileWithEmptyDiffFile()
 	{
+		$this->setExpectedException('Exception', 'Failed loading XML: Start tag expected, '<' not found');
 		$codeCoverageVerifier = new CodeCoverageVerifier();
 		$coverage = $codeCoverageVerifier->execute_file($this->fixture('empty_clover_xml.xml'), $this->fixture('empty_diff.diff'));
 
-		$this->assertEquals($this->get_default_result(), $coverage);
+		$this->assertEquals($codeCoverageVerifier->get_default_coverage_result(), $coverage);
 	}
 
-	/**
-	 * @expectedException Exception
-	 */
 	public function testExecuteEmptyCloverXmlFileWithDiffFile()
 	{
+		$this->setExpectedException('Exception', 'Failed loading XML: Start tag expected, '<' not found');
 		$codeCoverageVerifier = new CodeCoverageVerifier();
 		$coverage = $codeCoverageVerifier->execute_file($this->fixture('empty_clover_xml.xml'), $this->fixture('diff.diff'));
 
-		$this->assertEquals($this->get_default_result(), $coverage);
+		$this->assertEquals($codeCoverageVerifier->get_default_coverage_result(), $coverage);
 	}
 
 
@@ -72,7 +55,7 @@ class CodeCoverageVerifierTest extends PHPUnit_Framework_TestCase
 		$codeCoverageVerifier = new CodeCoverageVerifier();
 		$coverage = $codeCoverageVerifier->execute_file($this->fixture('clover_xml.xml'), $this->fixture('empty_diff.diff'));
 
-		$this->assertEquals($this->get_default_result(), $coverage);
+		$this->assertEquals($codeCoverageVerifier->get_default_coverage_result(), $coverage);
 	}
 
 	public function testExecuteCloverXmlFileWithUnrelatedDiffFile()
@@ -80,7 +63,7 @@ class CodeCoverageVerifierTest extends PHPUnit_Framework_TestCase
 		$codeCoverageVerifier = new CodeCoverageVerifier();
 		$coverage = $codeCoverageVerifier->execute_file($this->fixture('clover_xml.xml'), $this->fixture('unrelated_diff.diff'));
 
-		$expected = $this->get_default_result();
+		$expected = $codeCoverageVerifier->get_default_coverage_result();
 		$expected['ignored'][] = 'application/classes/controller/unrelated.php';
 		$this->assertEquals($expected, $coverage);
 	}
@@ -90,7 +73,7 @@ class CodeCoverageVerifierTest extends PHPUnit_Framework_TestCase
 		$codeCoverageVerifier = new CodeCoverageVerifier();
 		$coverage = $codeCoverageVerifier->execute_file($this->fixture('clover_xml.xml'), $this->fixture('diff.diff'));
 
-		$expected = $this->get_default_result();
+		$expected = $codeCoverageVerifier->get_default_coverage_result();
 		$expected['covered'][] = 'application/classes/controller/a_nice_file.php line 78 - 84';
 		$expected['covered'][] = 'application/classes/controller/a_nice_file.php line 114 - 120';
 		$expected['not-covered'][] = 'application/classes/controller/a_nice_file.php line 58 - 65';
@@ -104,7 +87,7 @@ class CodeCoverageVerifierTest extends PHPUnit_Framework_TestCase
 		$codeCoverageVerifier = new CodeCoverageVerifier(array('display_not_covered_range' => true));
 		$coverage = $codeCoverageVerifier->execute_file($this->fixture('clover_xml.xml'), $this->fixture('diff.diff'));
 
-		$expected = $this->get_default_result();
+		$expected = $codeCoverageVerifier->get_default_coverage_result();
 		$expected['covered'][] = 'application/classes/controller/a_nice_file.php line 78 - 84';
 		$expected['covered'][] = 'application/classes/controller/a_nice_file.php line 114 - 120';
 		$expected['not-covered'][] = 'application/classes/controller/a_nice_file.php line 58 - 65 (58, 59)';

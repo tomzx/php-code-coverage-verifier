@@ -1,0 +1,15 @@
+Index: application/composer.json
+===================================================================
+--- application/composer.json	(revision 910)
++++ application/composer.json	(working copy)
+@@ -7,6 +7,8 @@
+ 		"phpunit/phpunit": "3.7.*",
+ 		"phpunit/dbunit": "1.2.*",
+ 		"robmorgan/phinx": "*",
+-		"symfony/console": "v2.2.0"
++		"symfony/console": "v2.2.0",
++		"squizlabs/php_codesniffer": "dev-master",
++		"fabpot/goutte": "1.0.*@dev"
+ 	}
+ }
+\ No newline at end of file

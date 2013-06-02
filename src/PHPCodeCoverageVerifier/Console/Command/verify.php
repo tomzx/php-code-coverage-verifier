@@ -50,7 +50,7 @@ class Verify extends Command
 					);
 
 		$codeCoverageVerifier = new CodeCoverageVerifier($options);
-		$coverage = $codeCoverageVerifier->execute($clover_xml, $diff_file);
+		$coverage = $codeCoverageVerifier->execute_file($clover_xml, $diff_file);
 
 		$output->writeln('');
 		$output->writeln('Covered: ');

@@ -146,6 +146,11 @@ class UnifiedDiffParser
 		return strpos($text, $search) === 0;
 	}
 
+	public function setLogging($value)
+	{
+		$this->log = $value;
+	}
+
 	private function log($text, $eol = true) {
 		if ($this->log) {
 			echo $text.($eol ? PHP_EOL : '');
