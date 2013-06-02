@@ -1,0 +1,10 @@
+<?php
+
+require __DIR__.'/../vendor/autoload.php';
+
+if (!defined('PHP_CODE_COVERAGE_VERIFIER_VERSION')) {
+	define('PHP_CODE_COVERAGE_VERIFIER_VERSION', '0.1');
+}
+
+$app = new PHPCodeCoverageVerifier\Console\Application(PHP_CODE_COVERAGE_VERIFIER_VERSION);
+$app->run();
