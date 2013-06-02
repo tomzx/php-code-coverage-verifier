@@ -4,11 +4,16 @@ namespace PHPCodeCoverageVerifier;
 
 class CodeCoverageVerifier
 {
-	private $display_not_covered_range = false;
+	private $options = array();
 
-	public function __construct($options)
+	public function __construct($options = array())
 	{
-		$this->display_not_covered_range = $options['display_not_covered_range'];
+		$this->set_options($options, 'display_not_covered_range', false);
+	}
+
+	private function set_options($options, $name, $default_value)
+	{
+		$this->options[$name] = array_key_exists($name, $options) ? $options[$name] : $default_value;
 	}
 
 	private function find_file_in_xml($xml, $filename)
@@ -54,10 +59,11 @@ class CodeCoverageVerifier
 		return $coverage;
 	}
 
-	public function execute($clover_xml, $diff_file)
+	public function execute($clover_xml, $unified_diff_content)
 	{
-		$xml = simplexml_load_file($clover_xml);
-		$unified_diff_content = file_get_contents($diff_file);
+		if ($clover_xml === null) {
+			throw new \Exception('Cannot run on invalid/null clover-xml file.');
+		}
 
 		$unified_diff_parser = new UnifiedDiffParser();
 		$unified_diff_parser->parse($unified_diff_content);
@@ -75,12 +81,14 @@ class CodeCoverageVerifier
 
 		foreach ($extracted_data as $filename => $line) {
 			foreach ($line['line'] as $id => $range) {
+				$ignored = false;
 				foreach ($range['range'] as $target => $line_info) {
 					if ($target === 'destination') {
-						$file_node = $this->find_file_in_xml($xml, $filename);
+						$file_node = $this->find_file_in_xml($clover_xml, $filename);
 						// Put file with no coverage in ignored
 						if ($file_node === null) {
 							$coverage['ignored'][] = $filename;
+							$ignored = true;
 							break;
 						}
 
@@ -94,16 +102,38 @@ class CodeCoverageVerifier
 						if (count($file_coverage['not-covered']) === 0) {
 							$coverage['covered'][] = $message;
 						} else {
-							if ($this->display_not_covered_range) {
+							if ($this->options['display_not_covered_range']) {
 								$message = $message.' ('.implode(', ', $file_coverage['not-covered']).')';
 							}
 							$coverage['not-covered'][] = $message;
 						}
 					}
 				}
+
+				if ($ignored) {
+					break;
+				}
 			}
 		}
 
 		return $coverage;
+	}
+
+	public function execute_file($clover_xml, $diff_file)
+	{
+		libxml_use_internal_errors(true);
+		$xml = simplexml_load_file($clover_xml);
+
+		if ($xml === false) {
+			$errors = array();
+			foreach(libxml_get_errors() as $error) {
+				$errors[] = $error->message;
+			}
+			throw new \Exception('Failed loading XML: '.implode(', ', $errors));
+		}
+
+		$unified_diff_content = file_get_contents($diff_file);
+
+		return $this->execute($xml, $unified_diff_content);
 	}
 }
