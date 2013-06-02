@@ -3,6 +3,8 @@ PHP Code Coverage Verifier
 
 **PHP Code Coverage Verifier** allows you to determine if a change you've just done to your PHP code is being tested/covered by your tests. It uses a clover-xml report from a phpunit run (or any other code coverage suite that outputs to clover-xml format) and a unified diff containing your changes. **PHP Code Coverage Verifier** will then generate a list of the covered and not covered changes.
 
+[![Build Status](https://travis-ci.org/tomzx/php-code-coverage-verifier.png)](https://travis-ci.org/tomzx/php-code-coverage-verifier)
+
 Notice
 ------
 
