@@ -4,9 +4,21 @@ php:
     - 5.3
     - 5.4
     - 5.5
+    - 5.6
+    - 7.0
+    - hhvm
+
+matrix:
+    allow_failures:
+        - php: 7.0
 
 before_script:
     - composer self-update
     - composer update
 
-script: php vendor/bin/phpunit -c tests/phpunit.xml
+script:
+    - php vendor/bin/phpunit -c tests/phpunit.xml
+
+after_script:
+    - wget https://tomzx.github.io/php-semver-checker-git/php-semver-checker-git.phar
+    - php php-semver-checker-git.phar suggest src src --allow-detached -vvv
