@@ -1,0 +1,29 @@
+diff --git scripts/console scripts/console
+new file mode 100644
+index 0000000..19b446b
+--- /dev/null
++++ application/classes/controller/a_nice_file.php	(working copy)
+@@ -60,6 +58,7 @@
++			$x = 3;
+ 		}
+
+-
+ 		//
+ 		// Comment
+ 		$this->whatever = new Test();
+@@ -82,7 +78,6 @@
+ 		parent::before();
+ 	}
+
+-
+ 	/**
+ 	 * A comment
+ 	 *
+@@ -119,7 +114,6 @@
+ 		$this->content = 'great';
+ 	}
+
+-
+ 	/**
+ 	 * Something else
+ 	 *

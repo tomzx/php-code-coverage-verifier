@@ -10,7 +10,7 @@ class CodeCoverageVerifierTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException Exception
+	 * @expectedException PHPUnit_Framework_Error
 	 */
 	public function testExecuteNullCloverXmlWithEmptyDiffString()
 	{
@@ -21,7 +21,7 @@ class CodeCoverageVerifierTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException Exception
+	 * @expectedException PHPUnit_Framework_Error
 	 */
 	public function testExecuteNullCloverXmlWithDiffString()
 	{
@@ -94,5 +94,34 @@ class CodeCoverageVerifierTest extends PHPUnit_Framework_TestCase
 		$expected['details']['covered'] = 6;
 		$expected['details']['not-covered'] = 2;
 		$this->assertEquals($expected, $coverage);
+	}
+	
+	public function testExecuteCloverXmlWithNamespace()
+	{
+		$codeCoverageVerifier = new CodeCoverageVerifier();
+		$coverage = $codeCoverageVerifier->execute_file($this->fixture('namespaced_clover_xml.xml'), $this->fixture('diff.diff'));
+
+		$expected = $codeCoverageVerifier->get_default_coverage_result();
+		$expected['covered'][] = 'application/classes/controller/a_nice_file.php line 78 - 84';
+		$expected['covered'][] = 'application/classes/controller/a_nice_file.php line 114 - 120';
+		$expected['not-covered'][] = 'application/classes/controller/a_nice_file.php line 58 - 65';
+		$expected['details']['covered'] = 6;
+		$expected['details']['not-covered'] = 2;
+		$this->assertEquals($expected, $coverage);
+	}
+	
+	public function testExecuteCloverXmlWithGitDiff()
+	{
+		$codeCoverageVerifier = new CodeCoverageVerifier();
+		$coverage = $codeCoverageVerifier->execute_file($this->fixture('namespaced_clover_xml.xml'), $this->fixture('git.diff'));
+		
+		$expected = $codeCoverageVerifier->get_default_coverage_result();
+		$expected['covered'][] = 'application/classes/controller/a_nice_file.php line 78 - 84';
+		$expected['covered'][] = 'application/classes/controller/a_nice_file.php line 114 - 120';
+		$expected['not-covered'][] = 'application/classes/controller/a_nice_file.php line 58 - 65';
+		$expected['details']['covered'] = 6;
+		$expected['details']['not-covered'] = 2;
+		$this->assertEquals($expected, $coverage);
+
 	}
 }
