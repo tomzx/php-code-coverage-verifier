@@ -1,4 +1,4 @@
-<phpunit bootstrap="../../../../vendor/autoload.php">
+<phpunit bootstrap="../vendor/autoload.php">
 	<testsuite name="PHP Code Coverage Suite">
 		<directory>.</directory>
 	</testsuite>
