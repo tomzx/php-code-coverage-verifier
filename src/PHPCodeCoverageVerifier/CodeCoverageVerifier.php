@@ -72,6 +72,12 @@ class CodeCoverageVerifier
 
 		foreach ($extracted_data as $filename => $line) {
 			$file_node = $clover_xml->find_file($filename);
+			
+			if (!array_key_exists('line', $line))
+			{
+				//probably a submodule
+				continue;
+			}
 
 			foreach ($line['line'] as $id => $range) {
 				$ignored = false;
