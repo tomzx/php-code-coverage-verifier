@@ -1,38 +1,38 @@
 {
-    "name": "tomzx/php-code-coverage-verifier",
-    "description": "PHP Code Coverage Verifier",
-    "type": "library",
-    "keywords": [
-        "php code coverage verifier",
-        "phpunit",
-        "xunit",
-        "testing"
-    ],
-    "homepage": "https://github.com/tomzx/php-code-coverage-verifier",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Tom Rochette",
-            "email": "tom@tomrochette.com",
-            "homepage": "http://www.tomrochette.com"
-        }
-    ],
-    "support": {
-        "issues": "https://github.com/tomzx/php-code-coverage-verifier/issues"
-    },
-    "require": {
-        "php": ">=5.3",
-        "symfony/console": "2.*"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "3.7.*"
-    },
-    "autoload": {
-        "psr-0": {
-            "PHPCodeCoverageVerifier": "src/"
-        }
-    },
-    "bin": [
-        "bin/php-code-coverage-verifier"
-    ]
+	"name": "tomzx/php-code-coverage-verifier",
+	"description": "PHP Code Coverage Verifier",
+	"type": "library",
+	"keywords": [
+		"php code coverage verifier",
+		"phpunit",
+		"xunit",
+		"testing"
+	],
+	"homepage": "https://github.com/tomzx/php-code-coverage-verifier",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Tom Rochette",
+			"email": "tom@tomrochette.com",
+			"homepage": "http://www.tomrochette.com"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/tomzx/php-code-coverage-verifier/issues"
+	},
+	"require": {
+		"php": ">=5.5",
+		"symfony/console": "~2.7"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "~5"
+	},
+	"autoload": {
+		"psr-4": {
+			"PHPCodeCoverageVerifier\\": "src/PHPCodeCoverageVerifier"
+		}
+	},
+	"bin": [
+		"bin/php-code-coverage-verifier"
+	]
 }

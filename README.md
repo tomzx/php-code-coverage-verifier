@@ -1,17 +1,20 @@
-PHP Code Coverage Verifier
-==========================
+# PHP Code Coverage Verifier
+
+[![License](https://poser.pugx.org/tomzx/php-code-coverage-verifier/license.svg)](https://packagist.org/packages/tomzx/php-code-coverage-verifier)
+[![Latest Stable Version](https://poser.pugx.org/tomzx/php-code-coverage-verifier/v/stable.svg)](https://packagist.org/packages/tomzx/php-code-coverage-verifier)
+[![Latest Unstable Version](https://poser.pugx.org/tomzx/php-code-coverage-verifier/v/unstable.svg)](https://packagist.org/packages/tomzx/php-code-coverage-verifier)
+[![Build Status](https://img.shields.io/travis/tomzx/php-code-coverage-verifier.svg)](https://travis-ci.org/tomzx/php-code-coverage-verifier)
+[![Code Quality](https://img.shields.io/scrutinizer/g/tomzx/php-code-coverage-verifier.svg)](https://scrutinizer-ci.com/g/tomzx/php-code-coverage-verifier/code-structure)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/tomzx/php-code-coverage-verifier.svg)](https://scrutinizer-ci.com/g/tomzx/php-code-coverage-verifier)
+[![Total Downloads](https://img.shields.io/packagist/dt/tomzx/php-code-coverage-verifier.svg)](https://packagist.org/packages/tomzx/php-code-coverage-verifier)
 
 **PHP Code Coverage Verifier** allows you to determine if a change you've just done to your PHP code is being tested/covered by your tests. It uses a clover-xml report from a phpunit run (or any other code coverage suite that outputs to clover-xml format) and a unified diff containing your changes. **PHP Code Coverage Verifier** will then generate a list of the covered and not covered changes.
 
-[![Build Status](https://travis-ci.org/tomzx/php-code-coverage-verifier.png)](https://travis-ci.org/tomzx/php-code-coverage-verifier)
-
-Notice
-------
+## Notice
 
 The code is currently in a very crude state. It was done as a proof of concept and will improve if it proves useful to others.
 
-How to use
-----------
+## How to use
 
 **PHP Code Coverage Verifier** *ships* as a Composer package. You can include it in your project's composer.json and use in a console.
 
@@ -39,8 +42,7 @@ Options:
  --no-interaction (-n)        Do not ask any interactive question.
 ```
 
-Example of (current) output
----------------------------
+## Example of (current) output
 
 ```
 php vendor/bin/php-code-coverage-verifier verify my-clover.xml my-diff.patch
@@ -68,15 +70,13 @@ application/composer.json
 Coverage: 40 covered (56.338%), 31 not covered (43.662%)
 ```
 
-Roadmap
--------
+## Roadmap
 
 * More output formatters
     * XML
     * HTML
     * Text (better)
 
-License
--------
+## License
 
-The code is licensed under the MIT license (http://opensource.org/licenses/MIT). See license.txt.
+The code is licensed under the [MIT license](http://choosealicense.com/licenses/mit/). See [LICENSE](LICENSE).
