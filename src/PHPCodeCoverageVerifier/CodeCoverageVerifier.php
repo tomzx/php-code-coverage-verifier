@@ -72,7 +72,13 @@ class CodeCoverageVerifier
 
 		foreach ($extracted_data as $filename => $line) {
 			$file_node = $clover_xml->find_file($filename);
-
+			
+			if (empty($line))
+			{
+				//No lines were actually changed. Can be ignored
+				continue;
+			}
+			
 			foreach ($line['line'] as $id => $range) {
 				$ignored = false;
 
