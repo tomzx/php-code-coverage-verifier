@@ -24,11 +24,17 @@ class CloverXml
 	{
 		// TODO: use ends-with (xpath 2.0) instead of contains
 		$file_node = $this->xml->xpath('/coverage/project/file[contains(@name, "'.$filename.'")]');
+		$namespaced_node = $this->xml->xpath('/coverage/project/package/file[contains(@name, "'.$filename.'")]');
+
 		if (count($file_node) === 1) {
 			return $file_node[0];
-		} else {
-			return null;
+		} 
+		
+		if (count($namespaced_node) === 1){
+			return $namespaced_node[0];
 		}
+		
+		return null;
 	}
 
 	public function get_line_node_from_file_node($file_node, $line_no)

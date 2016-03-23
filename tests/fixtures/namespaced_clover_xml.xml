@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1370125530">
+	<project timestamp="1370125530">
+		<package name="Controllers\CoolController">
+		<file name="application/classes/controller/a_nice_file.php">
+			<class name="Controller_Whatever" namespace="Controllers\CoolController">
+				<metrics methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="119" coveredstatements="42" elements="123" coveredelements="46"/>
+			</class>
+			<line num="14" type="method" name="before" crap="41.52" count="3"/>
+			<line num="16" type="stmt" count="3"/>
+			<line num="19" type="stmt" count="3"/>
+			<line num="21" type="stmt" count="3"/>
+			<line num="22" type="stmt" count="3"/>
+			<line num="23" type="stmt" count="3"/>
+			<line num="25" type="stmt" count="3"/>
+			<line num="29" type="stmt" count="3"/>
+			<line num="30" type="stmt" count="3"/>
+			<line num="31" type="stmt" count="0"/>
+			<line num="33" type="stmt" count="0"/>
+			<line num="35" type="stmt" count="0"/>
+			<line num="36" type="stmt" count="0"/>
+			<line num="37" type="stmt" count="0"/>
+			<line num="39" type="stmt" count="0"/>
+			<line num="40" type="stmt" count="0"/>
+			<line num="42" type="stmt" count="0"/>
+			<line num="46" type="stmt" count="3"/>
+			<line num="47" type="stmt" count="0"/>
+			<line num="48" type="stmt" count="0"/>
+			<line num="50" type="stmt" count="0"/>
+			<line num="51" type="stmt" count="0"/>
+			<line num="52" type="stmt" count="0"/>
+			<line num="53" type="stmt" count="0"/>
+			<line num="55" type="stmt" count="3"/>
+			<line num="56" type="stmt" count="0"/>
+			<line num="57" type="stmt" count="1"/>
+			<line num="58" type="stmt" count="0"/>
+			<line num="59" type="stmt" count="0"/>
+			<line num="63" type="stmt" count="3"/>
+			<line num="65" type="stmt" count="3"/>
+			<line num="66" type="stmt" count="0"/>
+			<line num="67" type="stmt" count="0"/>
+			<line num="69" type="stmt" count="3"/>
+			<line num="70" type="stmt" count="0"/>
+			<line num="71" type="stmt" count="0"/>
+			<line num="75" type="stmt" count="3"/>
+			<line num="76" type="stmt" count="3"/>
+			<line num="78" type="stmt" count="3"/>
+			<line num="79" type="stmt" count="3"/>
+			<line num="87" type="method" name="action_index" crap="2.11" count="1"/>
+			<line num="90" type="stmt" count="1"/>
+			<line num="91" type="stmt" count="1"/>
+			<line num="93" type="stmt" count="1"/>
+			<line num="94" type="stmt" count="1"/>
+			<line num="96" type="stmt" count="1"/>
+			<line num="97" type="stmt" count="0"/>
+			<line num="98" type="stmt" count="0"/>
+			<line num="99" type="stmt" count="0"/>
+			<line num="100" type="stmt" count="0"/>
+			<line num="102" type="stmt" count="0"/>
+			<line num="103" type="stmt" count="0"/>
+			<line num="105" type="stmt" count="1"/>
+			<line num="107" type="stmt" count="1"/>
+			<line num="108" type="stmt" count="1"/>
+			<line num="109" type="stmt" count="1"/>
+			<line num="110" type="stmt" count="1"/>
+			<line num="112" type="stmt" count="1"/>
+			<line num="113" type="stmt" count="1"/>
+			<line num="114" type="stmt" count="1"/>
+			<line num="115" type="stmt" count="1"/>
+			<line num="123" type="method" name="action_category" crap="22.56" count="1"/>
+			<line num="125" type="stmt" count="1"/>
+			<line num="126" type="stmt" count="1"/>
+			<line num="129" type="stmt" count="1"/>
+			<line num="130" type="stmt" count="1"/>
+			<line num="133" type="stmt" count="0"/>
+			<line num="134" type="stmt" count="0"/>
+			<line num="138" type="stmt" count="0"/>
+			<line num="139" type="stmt" count="0"/>
+			<line num="141" type="stmt" count="0"/>
+			<line num="142" type="stmt" count="0"/>
+			<line num="144" type="stmt" count="0"/>
+			<line num="145" type="stmt" count="0"/>
+			<line num="146" type="stmt" count="0"/>
+			<line num="147" type="stmt" count="0"/>
+			<line num="148" type="stmt" count="0"/>
+			<line num="150" type="stmt" count="0"/>
+			<line num="151" type="stmt" count="0"/>
+			<line num="153" type="stmt" count="0"/>
+			<line num="155" type="stmt" count="0"/>
+			<line num="156" type="stmt" count="0"/>
+			<line num="157" type="stmt" count="0"/>
+			<line num="159" type="stmt" count="0"/>
+			<line num="162" type="stmt" count="0"/>
+			<line num="164" type="stmt" count="0"/>
+			<line num="166" type="stmt" count="0"/>
+			<line num="167" type="stmt" count="0"/>
+			<line num="168" type="stmt" count="0"/>
+			<line num="171" type="stmt" count="0"/>
+			<line num="172" type="stmt" count="0"/>
+			<line num="173" type="stmt" count="0"/>
+			<line num="174" type="stmt" count="0"/>
+			<line num="177" type="stmt" count="0"/>
+			<line num="179" type="stmt" count="0"/>
+			<line num="180" type="stmt" count="0"/>
+			<line num="181" type="stmt" count="0"/>
+			<line num="182" type="stmt" count="0"/>
+			<line num="190" type="method" name="action_detail" crap="9.97" count="1"/>
+			<line num="192" type="stmt" count="1"/>
+			<line num="193" type="stmt" count="1"/>
+			<line num="194" type="stmt" count="1"/>
+			<line num="195" type="stmt" count="1"/>
+			<line num="196" type="stmt" count="1"/>
+			<line num="198" type="stmt" count="1"/>
+			<line num="199" type="stmt" count="1"/>
+			<line num="203" type="stmt" count="0"/>
+			<line num="204" type="stmt" count="0"/>
+			<line num="205" type="stmt" count="0"/>
+			<line num="207" type="stmt" count="0"/>
+			<line num="208" type="stmt" count="0"/>
+			<line num="209" type="stmt" count="0"/>
+			<line num="211" type="stmt" count="0"/>
+			<line num="213" type="stmt" count="0"/>
+			<line num="214" type="stmt" count="0"/>
+			<line num="215" type="stmt" count="0"/>
+			<line num="218" type="stmt" count="0"/>
+			<line num="219" type="stmt" count="0"/>
+			<line num="221" type="stmt" count="0"/>
+			<line num="222" type="stmt" count="0"/>
+			<line num="224" type="stmt" count="0"/>
+			<line num="225" type="stmt" count="0"/>
+			<line num="226" type="stmt" count="0"/>
+			<line num="227" type="stmt" count="0"/>
+			<line num="229" type="stmt" count="1"/>
+			<metrics loc="228" ncloc="160" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="119" coveredstatements="42" elements="123" coveredelements="42"/>
+		</file>
+		</package>
+		<metrics files="484" loc="40113" ncloc="34107" classes="273" methods="1393" coveredmethods="587" conditionals="0" coveredconditionals="0" statements="14709" coveredstatements="5331" elements="16102" coveredelements="5918"/>
+	</project>
+</coverage>
