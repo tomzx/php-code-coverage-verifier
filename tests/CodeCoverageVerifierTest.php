@@ -106,4 +106,13 @@ class CodeCoverageVerifierTest extends PHPUnit_Framework_TestCase
 		$expected['details']['not-covered'] = 2;
 		$this->assertEquals($expected, $coverage);
 	}
+	
+	public function testsExecuteCloverXmlWithGitSubmodule()
+	{
+		$codeCoverageVerifier = new CodeCoverageVerifier();
+		$coverage = $codeCoverageVerifier->execute_file($this->fixture('clover_xml.xml'), $this->fixture('submodule.diff'));
+
+		$expected = $codeCoverageVerifier->get_default_coverage_result();
+		$this->assertEquals($expected, $coverage);
+	}
 }

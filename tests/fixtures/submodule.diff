@@ -1,0 +1,7 @@
+diff --git some_submodule some_submodule
+index f63f9d6..5305eac 160000
+--- some_submodule
++++ some_submodule
+@@ -1 +1 @@
+-Subproject commit f63f9d60d9a339dd6d65a5db878e59ab018e48c6
++Subproject commit 5305eacf150335ed9527839cdd15636ba8780435
