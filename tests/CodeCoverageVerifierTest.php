@@ -10,45 +10,28 @@ class CodeCoverageVerifierTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException Exception
+	 * @expectedExceptionMessage Failed loading XML: Start tag expected, '<' not found
 	 */
-	public function testExecuteNullCloverXmlWithEmptyDiffString()
-	{
-		$codeCoverageVerifier = new CodeCoverageVerifier();
-		$coverage = $codeCoverageVerifier->execute(null, '');
-
-		$this->assertEquals($codeCoverageVerifier->get_default_coverage_result(), $coverage);
-	}
-
-	/**
-	 * @expectedException PHPUnit_Framework_Error
-	 */
-	public function testExecuteNullCloverXmlWithDiffString()
-	{
-		$codeCoverageVerifier = new CodeCoverageVerifier();
-		$coverage = $codeCoverageVerifier->execute(null, file_get_contents($this->fixture('diff.diff')));
-
-		$this->assertEquals($codeCoverageVerifier->get_default_coverage_result(), $coverage);
-	}
-
 	public function testExecuteEmptyCloverXmlFileWithEmptyDiffFile()
 	{
-		$this->setExpectedException('Exception', 'Failed loading XML: Start tag expected, '<' not found');
 		$codeCoverageVerifier = new CodeCoverageVerifier();
 		$coverage = $codeCoverageVerifier->execute_file($this->fixture('empty_clover_xml.xml'), $this->fixture('empty_diff.diff'));
 
 		$this->assertEquals($codeCoverageVerifier->get_default_coverage_result(), $coverage);
 	}
 
+	/**
+	 * @expectedException Exception
+	 * @expectedExceptionMessage Failed loading XML: Start tag expected, '<' not found
+	 */
 	public function testExecuteEmptyCloverXmlFileWithDiffFile()
 	{
-		$this->setExpectedException('Exception', 'Failed loading XML: Start tag expected, '<' not found');
 		$codeCoverageVerifier = new CodeCoverageVerifier();
 		$coverage = $codeCoverageVerifier->execute_file($this->fixture('empty_clover_xml.xml'), $this->fixture('diff.diff'));
 
 		$this->assertEquals($codeCoverageVerifier->get_default_coverage_result(), $coverage);
 	}
-
 
 	public function testExecuteCloverXmlFileWithEmptyDiffFile()
 	{
@@ -95,7 +78,7 @@ class CodeCoverageVerifierTest extends PHPUnit_Framework_TestCase
 		$expected['details']['not-covered'] = 2;
 		$this->assertEquals($expected, $coverage);
 	}
-	
+
 	public function testExecuteCloverXmlWithNamespace()
 	{
 		$codeCoverageVerifier = new CodeCoverageVerifier();
@@ -109,12 +92,12 @@ class CodeCoverageVerifierTest extends PHPUnit_Framework_TestCase
 		$expected['details']['not-covered'] = 2;
 		$this->assertEquals($expected, $coverage);
 	}
-	
+
 	public function testExecuteCloverXmlWithGitDiff()
 	{
 		$codeCoverageVerifier = new CodeCoverageVerifier();
 		$coverage = $codeCoverageVerifier->execute_file($this->fixture('namespaced_clover_xml.xml'), $this->fixture('git.diff'));
-		
+
 		$expected = $codeCoverageVerifier->get_default_coverage_result();
 		$expected['covered'][] = 'application/classes/controller/a_nice_file.php line 78 - 84';
 		$expected['covered'][] = 'application/classes/controller/a_nice_file.php line 114 - 120';
@@ -122,6 +105,5 @@ class CodeCoverageVerifierTest extends PHPUnit_Framework_TestCase
 		$expected['details']['covered'] = 6;
 		$expected['details']['not-covered'] = 2;
 		$this->assertEquals($expected, $coverage);
-
 	}
 }

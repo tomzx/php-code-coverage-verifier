@@ -9,10 +9,12 @@ class UnifiedDiffParserTest extends PHPUnit_Framework_TestCase
 		return __DIR__.'/fixtures/'.$path;
 	}
 
+	/**
+	 * @expectedException Exception
+	 * @expectedExceptionMessage Could not find parser for line #1, text "1"
+	 */
 	public function testParseInvalidDiff()
 	{
-		$this->setExpectedException('Exception', 'Could not find parser for line #1, text "1"');
-
 		$diff_file = file_get_contents($this->fixture('invalid_diff.diff'));
 		$unifiedDiffParser = new UnifiedDiffParser();
 		$unifiedDiffParser->parse($diff_file);
