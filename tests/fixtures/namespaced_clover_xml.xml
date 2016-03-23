@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <coverage generated="1370125530">
 	<project timestamp="1370125530">
-		<package name="Portals\Libraries\Entities">
+		<package name="Controllers\CoolController">
 		<file name="application/classes/controller/a_nice_file.php">
 			<class name="Controller_Whatever" namespace="Controllers\CoolController">
 				<metrics methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="119" coveredstatements="42" elements="123" coveredelements="46"/>
