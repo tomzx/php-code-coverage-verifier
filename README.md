@@ -22,6 +22,8 @@ Before you run the command line, be sure to run your tests with phpunit (or othe
 
 Then you need to generate the diff of your changes. Here we assume you will generate those using either `svn diff` or `git diff` (users of TortoiseGIT/TortoiseSVN can use "Create patch...").
 
+(Example: `git diff --no-prefix > my-diff.patch`)
+
 ```
 php vendor/bin/php-code-coverage-verifier verify --help
 Usage:
